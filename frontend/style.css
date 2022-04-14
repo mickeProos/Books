@@ -1,0 +1,127 @@
+main {
+  display:flex;
+}
+
+header {
+  background-color:cornflowerblue;
+}
+
+body {
+  background-image: url("/images/login-picture.jpg");
+  background-size: auto;
+}
+
+
+ul {
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  max-width:1500px;
+ 
+  
+}
+
+li {
+height:350px;
+width:300px;
+border:1px solid black;
+margin:20px;
+border-radius: 25px;
+display:flex;
+justify-content: center;
+align-items: center;
+flex-flow: column;
+background-color:cornflowerblue;
+}
+
+li:hover {
+height:370px;
+width:320px;
+font-size:20px;
+transform: translate(20px,20px);
+transition: all 300ms ease-in-out;
+
+}
+
+h1 , h2{
+  padding:10px;
+  color:white;
+
+}
+
+p {
+  height:20px;
+  margin-left:10px;
+  color:white;
+  
+}
+
+.hidden {
+  display:none;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  box-shadow: 0 4px 10px 0 rgb(161, 161, 161);
+  
+}
+
+#homepagepicture-container {
+ position: absolute;
+ top: 50%;  
+ left: 50%; 
+ transform: translate(-50%, -50%);
+}
+
+
+
+
+input {
+  width:200px;
+  height:20px;
+  
+}
+
+#product-list {
+  flex-wrap: wrap;
+} 
+
+button {
+  background-color: #0B188A; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 25px;
+  margin:10px;
+}
+
+
+img {
+  object-fit: cover;
+}
+
+.login-register-container {
+  padding:35px;
+}
+
+#form-container, #login-container ,  #register-form  {
+  box-shadow:0 4px 10px 0 rgb(161, 161, 161);
+  width:15%;
+  text-align: center;
+  width:255px;
+  background-color:cornflowerblue;
+}
+
+#homepagepicture-container {
+  margin-top: 100px;
+}
+
+#homepage-picture {
+  width:1000px;
+  height:885px;
+}

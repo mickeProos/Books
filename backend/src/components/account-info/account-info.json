@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_account_info_account_infos",
+  "info": {
+    "displayName": "accountInfo",
+    "icon": "at"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "accountEmail": {
+      "type": "email"
+    },
+    "birthdate": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <header>
+    
+    <img src="/images/LOGO.png">
+
+    <div class="login-register-container">
+    <button id="login-register-btn" onclick="showSignIn()">login</button>
+    </div>
+    <div id="profile-logo-container" class="hidden"> 
+    <img src="/images/profilelogo.jpg" alt="profile" width="55px" height="55px">
+    <p></p>
+    </div>
+    
+</header>
+<main>
+
+    <div id="homepagepicture-container"  >
+    <img src="/images/homepagepicture.jpg" alt="books & flowers" id="homepage-picture" >
+    </div>
+
+    
+
+    <div id="login-container" class="hidden">
+        <h2>Logg in</h2>
+        <label>användarnamn</label>
+        <input type="text" id="loginName"> <br>
+        <label>lösenord</label>
+        <input type="passord" id="loginPassword">
+        <button onclick="login()" >Logga in</button>
+        <br>
+        
+        <button  onclick="showRegister()">inte registrerad? Registrera dig här!</button>
+    </div>
+
+    
+
+    <div id="form-container" class="hidden">
+
+        <h2>Lägg till en bok</h2>
+        <div>
+            <label for="productName">Produktnamn</label> 
+            <input type="text" id="productName">
+        </div>
+        <div>
+            <label for="productPrice">Pris</label> <br />
+            <input type="number" id="productPrice">
+        </div>
+        <div>
+            <label for="productImage">Bild:</label> <br />
+            <input type="file" id="productImage">
+        </div>
+        <button>Lägg till produkt</button>
+    </div>
+
+
+    
+        <div id="register-form" class="hidden">
+            <h2>registrera dig</h2>
+            <label>användarnamn</label>
+            <input type="text" id ="registerName">
+            <label>lösenord</label> 
+            <input type="text" id="registerPassword"> <br />
+            <label>epost</label> <br />
+            <input type="text" id="registerEmail">
+            <button onclick="register()">Registrera dig</button>
+        </div>
+<br>
+       
+
+    
+    <div id="product-list" class="hidden">
+       
+    <div class="bookList">
+        <ul class="products"></ul>
+          
+
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+       
+            
+
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+      
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+
+    </div>
+
+
+
+    <div class="bookList">
+        <ul class="products"></ul>
+        
+
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+       
+
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+        
+
+    </div>
+
+    <div class="bookList">
+        <ul class="products"></ul>
+            
+    </div>
+
+</div>
+
+
+
+</main>
+    <script src="main.js"></script>
+</body>
+</html>
