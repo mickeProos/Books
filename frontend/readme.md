@@ -15,9 +15,7 @@ Profilsidan som visar information om användarens användarnamn, email, id, samt
 
 
 
-(VG) Sidan ska även innehålla en lista över samtliga böcker och ljudböcker som användaren har lagt ut för utlåning.
-(VG) Samtliga böcker och ljudböcker ska även ha en eller flera av följande genrer: Romantik, humor, skräck, barnvänlig, fantasy, sci-fi, action. (Skapa en content-type för dina genrer. Du kan också skapa egna genrer om du vill.
-(VG) - Det ska även finnas ytterligare en sida där registrerade användare kan lägga ut böcker och ljudböcker för utlåning. Denna sida ska kräva att användaren är inloggad. Se till att användaren kan lägga till samtliga egenskaper för boken/ljudboken, inklusive bild på bokomslag och genrer. 
+
 
 
 

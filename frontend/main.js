@@ -67,7 +67,7 @@ const register = async () => {
         
         response.data.data.forEach(book => {
             document.querySelector(".products").innerHTML+= `
-            <li>
+            <li id="books-li">
             <img src="http://localhost:1338${book.attributes.image.data.attributes.url}" height="150px" width="100%">
             <p>Titel: ${book.attributes.Title}</p>
             <p>Antal sidor: ${book.attributes.pages}</p>
@@ -79,15 +79,57 @@ const register = async () => {
         })
         
      }
+     checkLoginStatus()
+
+
+
+     let getAudiobooks = async () => {
+
+        let response = await axios.get('http://localhost:1338/api/audiobooks?populate=*'
+        ,{
+            
+            headers:{
+                Authorization:`Bearer ${sessionStorage.getItem("token")}`
+            }
+        }
+        );
+
+        let nodebooklist = document.querySelectorAll("#books-li")
+        let booklist = Array.from(nodebooklist)
+        for (let book = 0; book < booklist.length; book++ ) {
+            
+            booklist[book].classList.add("hidden");
+        }
+       
+    
+        console.log(response.data)
+        
+        response.data.data.forEach(audiobook => {
+            document.querySelector(".products").innerHTML+= `
+            <li id="audiobooks-li">
+            <img src="http://localhost:1338${audiobook.attributes.image.data.attributes.url}" height="150px" width="100%">
+            <p>Titel: ${audiobook.attributes.Title}</p>
+            <p>Antal sidor: ${audiobook.attributes.pages}</p>
+            <p>Betyg: ${audiobook.attributes.points}</p>
+            <p>Författare: ${audiobook.attributes.Author}</p>
+            <p>Lånas av: ${audiobook.attributes.user}</p>
+            <button>Låna bok</button>
+            </li>`
+        })
+
+
+         
+
+     }
      
-    checkLoginStatus()
+    
 
     const showSignIn = () => {
         document.querySelector("#login-container").classList.remove("hidden");
         document.querySelector("#product-list").classList.remove("hidden");
         document.querySelector(".login-register-container").classList.add("hidden");
         document.querySelector("#homepagepicture-container").classList.add("hidden");
-        document.querySelector("#loginpicture-container").classList.remove("hidden");
+        document.querySelector("#login-container").classList.remove("hidden");
 
        
     }
@@ -115,6 +157,7 @@ let bookAuthor = document.querySelector("#bookAuthor");
         let image = document.querySelector("#bookImage").files;
         let imgData = new FormData();
         imgData.append('files', image[0]);
+        console.log(image[0])
         
         // Laddar upp bild till Strapi.
         axios.post("http://localhost:1338/api/upload", imgData, {
