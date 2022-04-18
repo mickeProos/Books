@@ -14,26 +14,24 @@
 
     <header>
     
-    <img src="/images/LOGO.png" id="logo">
+    <img src="/images/LOGO.svg" id="logo">
 
     <div class="login-register-container">
     <button id="login-register-btn" onclick="showSignIn()">login</button>
     </div>
     <nav>
-        <li id="booksBtn">Böcker</li> <br />
-        <li id="audiobooksBtn" onclick="getAudiobooks()">ljudböcker</li>
+        <li id="booksBtn" onclick="getbooks()" class="hidden">Böcker</li> <br />
+        <li id="audiobooksBtn"  onclick="getAudiobooks()" class="hidden">ljudböcker</li>
     </nav>
-    <div id="profile-logo-container" class="hidden"> 
-        <a href="/frontend/profile.html"><img src="/images/profilelogo.jpg" alt="profile" width="55px" height="55px" ></a>
-        <p></p>
+    <div id="profile-logo-container" > 
+        <a href="/frontend/profile.html"><img src="/images/profilelogo.svg" alt="profile" id="profile-logo" class="hidden"  ></a>
+        <p id="profilsida-text" style="margin:0" class="hidden" >profilsida</p>
     </div>
 </header>
 
 <main>
 
-    <div id="homepagepicture-container"  >
-    <img src="/images/homepagepicture.jpg" alt="books & flowers" id="homepage-picture" >
-    </div>
+   
 
     
 
@@ -74,8 +72,50 @@
             <label for="bookImage">Bild</label> <br />
             <input type="file" id="bookImage">
         </div>
+        <div>
+            <label for="borrowName">Namn på den som lånar ut</label> <br />
+            <input type="text" id="borrowbookName">
+        </div>
+        <div>
+            <label for="borrowEmail">Email på den som lånar ut</label> <br />
+            <input type="text" id="borrowbookEmail">
+        </div>
         <button onclick="addNewBook()">Lägg till produkt</button>
+     
+    </div>
+    <div id="form-container-audio" class="hidden">
 
+        <h2>Lägg till en ljudbok</h2>
+        <div>
+            <label for="bookName">Titel</label> <br />
+            <input type="text" id="audiobookName">
+        </div>
+        <div>
+            <label for="BookPages">Längd i minuter</label> <br />
+            <input type="number" id="audiobookPages">
+        </div>
+        <div>
+            <label for="points">Betyg (1-10)</label> <br />
+            <input type="text" id="audiobookPoints" >
+        </div>
+        <div>
+            <label for="author">Författare</label> <br />
+            <input type="text" id="audiobookAuthor" >
+        </div>
+        <div>
+            <label for="bookImage">Bild</label> <br />
+            <input type="file" id="audiobookImage">
+        </div>
+        <div>
+            <label for="borrowName">Namn på den som lånar ut</label> <br />
+            <input type="text" id="borrowaudiobookName">
+        </div>
+        <div>
+            <label for="borrowEmail">Email på den som lånar ut</label> <br />
+            <input type="text" id="borrowaudiobookEmail">
+        </div>
+        <button onclick="addNewAudiobook()" id="audiobook-btn">Lägg till produkt</button>
+    
      
     </div>
 
@@ -146,6 +186,9 @@
     </div>
 
 </div>
+
+
+
 
 
 

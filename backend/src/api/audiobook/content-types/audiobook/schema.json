@@ -18,7 +18,7 @@
     "Author": {
       "type": "string"
     },
-    "pages": {
+    "length": {
       "type": "integer"
     },
     "points": {
@@ -34,6 +34,12 @@
         "videos",
         "audios"
       ]
+    },
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
     }
   }
 }
