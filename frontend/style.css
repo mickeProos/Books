@@ -4,6 +4,8 @@ main {
 
 header {
   background-color:cornflowerblue;
+ margin-top: -10px;
+ margin-left: -5px;
 }
 
 body {
@@ -22,7 +24,6 @@ ul {
 }
 
 li {
-height:350px;
 width:300px;
 border:1px solid black;
 margin:20px;
@@ -63,7 +64,6 @@ p {
 header {
   display:flex;
   justify-content:space-between;
-  box-shadow: 0 4px 10px 0 rgb(161, 161, 161);
   
 }
 
@@ -98,6 +98,27 @@ button {
   font-size: 16px;
   border-radius: 25px;
   margin:10px;
+  
+}
+
+#audiobooksBtn, #booksBtn{
+  height:50px !important;
+  color:white;
+}
+
+
+label{
+  color:white;
+}
+
+nav {
+  display:flex;
+  align-items: flex-end;
+  
+}
+
+#audiobooksBtn:hover , #booksBtn:hover, li:hover {
+  background-color: #0B188A; 
 }
 
 
@@ -105,12 +126,19 @@ img {
   object-fit: cover;
 }
 
+#logo {
+  margin:10px;
+}
+
 .login-register-container {
   padding:35px;
 }
 
+#form-container {
+  margin-left: -5px;
+}
+
 #form-container, #login-container ,  #register-form  {
-  box-shadow:0 4px 10px 0 rgb(161, 161, 161);
   width:15%;
   text-align: center;
   width:255px;

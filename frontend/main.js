@@ -73,6 +73,8 @@ const register = async () => {
             <p>Antal sidor: ${book.attributes.pages}</p>
             <p>Betyg: ${book.attributes.points}</p>
             <p>Författare: ${book.attributes.Author}</p>
+            <p>Lånas av: ${book.attributes.user}</p>
+            <button>Låna bok</button>
             </li>`
         })
         
@@ -99,5 +101,46 @@ const register = async () => {
 
     document.querySelector("#login-container").classList.add("hidden");
 
+
+
+let bookName = document.querySelector("#bookName");
+let bookPages = document.querySelector("#bookPages");
+let bookImage = document.querySelector("#bookImage");
+let bookpoints = document.querySelector("#bookPoints");
+let bookAuthor = document.querySelector("#bookAuthor");
+
  
-    
+    const addNewBook = async () => {
+        //Hämtar ut filen och placerar den i en FormData
+        let image = document.querySelector("#bookImage").files;
+        let imgData = new FormData();
+        imgData.append('files', image[0]);
+        
+        // Laddar upp bild till Strapi.
+        axios.post("http://localhost:1338/api/upload", imgData, {
+            headers: {
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`
+            }
+        }).then(res => {
+            //Placerar den uppladdade filens id i vår nya produkt vi vill lägga till.
+            let imageId = res.data[0].id;
+            axios.post("http://localhost:1338/api/books", {
+                //request body
+                    data: {
+                        Title: bookName.value,
+                        pages: bookPages.value,
+                        points: bookPoints.value,
+                        Author: bookAuthor.value,
+                        image:imageId
+                    }
+                },
+                {
+                    //config
+                    headers: {
+                        Authorization: `Bearer ${sessionStorage.getItem("token")}`
+                    }
+                })
+            })
+        
+}
+

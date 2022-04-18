@@ -14,17 +14,21 @@
 
     <header>
     
-    <img src="/images/LOGO.png">
+    <img src="/images/LOGO.png" id="logo">
 
     <div class="login-register-container">
     <button id="login-register-btn" onclick="showSignIn()">login</button>
     </div>
+    <nav>
+        <li id="booksBtn">Böcker</li> <br />
+        <li id="audiobooksBtn">ljudböcker</li>
+    </nav>
     <div id="profile-logo-container" class="hidden"> 
-    <img src="/images/profilelogo.jpg" alt="profile" width="55px" height="55px">
-    <p></p>
+        <a href="/frontend/profile.html"><img src="/images/profilelogo.jpg" alt="profile" width="55px" height="55px" ></a>
+        <p></p>
     </div>
-    
 </header>
+
 <main>
 
     <div id="homepagepicture-container"  >
@@ -51,18 +55,28 @@
 
         <h2>Lägg till en bok</h2>
         <div>
-            <label for="productName">Produktnamn</label> 
-            <input type="text" id="productName">
+            <label for="bookName">Titel</label> <br />
+            <input type="text" id="bookName">
         </div>
         <div>
-            <label for="productPrice">Pris</label> <br />
-            <input type="number" id="productPrice">
+            <label for="BookPages">antal sidor</label> <br />
+            <input type="number" id="bookPages">
         </div>
         <div>
-            <label for="productImage">Bild:</label> <br />
-            <input type="file" id="productImage">
+            <label for="points">Betyg (1-10)</label> <br />
+            <input type="text" id="bookPoints" >
         </div>
-        <button>Lägg till produkt</button>
+        <div>
+            <label for="author">Författare</label> <br />
+            <input type="text" id="bookAuthor" >
+        </div>
+        <div>
+            <label for="bookImage">Bild</label> <br />
+            <input type="file" id="bookImage">
+        </div>
+        <button onclick="addNewBook()">Lägg till produkt</button>
+
+     
     </div>
 
 
