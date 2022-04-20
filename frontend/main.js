@@ -79,14 +79,14 @@ const register = async () => {
         
         response.data.data.forEach(book => {
             document.querySelector(".products").innerHTML+= `
-            <li id="books-li">
+            <li id="books-li" class="${book.id}">
             <img id="list-image" src="http://localhost:1338${book.attributes.image.data.attributes.url}">
             <p>Titel: ${book.attributes.Title}</p>
             <p>Antal sidor: ${book.attributes.pages}</p>
             <p>Betyg: ${book.attributes.points}</p>
             <p>Författare: ${book.attributes.Author}</p>
             <p>Utlånas av ${book.attributes.username}.<br> Email: ${book.attributes.email}</p>
-            <button id="borrowbook" onclick="borrowdaBook()">Låna bok</button>
+            <button id="borrowbook" onclick="borrowdaBook('http://localhost:1338/api/books/${book.id}')">Låna bok</button>
             </li>`
         })
 
@@ -137,7 +137,7 @@ const register = async () => {
             <p>längd: ${audiobook.attributes.length} minuter</p>
             <p>Betyg: ${audiobook.attributes.points}</p>
             <p>Författare: ${audiobook.attributes.Author}</p>
-            <button id="borrowbook" onclick="borrowdaBook()">Låna bok</button>
+            <button id="borrowbook" onclick="borrowdaBook('http://localhost:1338/api/audiobooks/${audiobook.id}')">Låna ljudbok</button>
             <p>Utlånas av ${audiobook.attributes.username}.<br> Email: ${audiobook.attributes.email}</p>
             </li>`
         })
@@ -179,22 +179,20 @@ let bookAuthor = document.querySelector("#bookAuthor");
 
  
     const addNewBook = async () => {
-        //Hämtar ut filen och placerar den i en FormData
         let image = document.querySelector("#bookImage").files;
         let imgData = new FormData();
         imgData.append('files', image[0]);
         console.log(image[0])
         
-        // Laddar upp bild till Strapi.
         axios.post("http://localhost:1338/api/upload", imgData, {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem("token")}`
             }
         }).then(res => {
-            //Placerar den uppladdade filens id i vår nya produkt vi vill lägga till.
+          
             let imageId = res.data[0].id;
             axios.post("http://localhost:1338/api/books", {
-                //request body
+               
                     data: {
                         Title: bookName.value,
                         pages: bookPages.value,
@@ -206,7 +204,7 @@ let bookAuthor = document.querySelector("#bookAuthor");
                     }
                 },
                 {
-                    //config
+                    
                     headers: {
                         Authorization: `Bearer ${sessionStorage.getItem("token")}`
                     }
@@ -216,22 +214,19 @@ let bookAuthor = document.querySelector("#bookAuthor");
 }
 
 const addNewAudiobook = async () => {
-    //Hämtar ut filen och placerar den i en FormData
+    
     let image = document.querySelector("#audiobookImage").files;
     let imgData = new FormData();
     imgData.append('files', image[0]);
     console.log(image[0])
-    
-    // Laddar upp bild till Strapi.
         axios.post("http://localhost:1338/api/upload", imgData, {
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`
         }
     }).then(res => {
-        //Placerar den uppladdade filens id i vår nya produkt vi vill lägga till.
         let imageId = res.data[0].id;
         axios.post("http://localhost:1338/api/audiobooks", {
-            //request body
+
                 data: {
                     Title: audiobookName.value,
                     length: audiobookPages.value,
@@ -243,7 +238,7 @@ const addNewAudiobook = async () => {
                 }
             },
             {
-                //config
+            
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem("token")}`
                 }
@@ -256,13 +251,28 @@ const addNewAudiobook = async () => {
 
 
 
-let borrowbookBtn = document.querySelector("#borrowbook");
+
+    let borrowdaBook = async(url)=>{
+        
+        await axios.delete(url,
+        {
+            headers:{
+                Authorization:`Bearer ${sessionStorage.getItem("token")}`
+                
+            }
+        })
+
+
+        alert("refresha sidan för att se vilka böcker som är tillgängliga nu")
+        
+            }
 
 
 
-let borrowdaBook = (el) => {
-
- console.log("hej")
+            
 
 
-}
+
+
+
+
